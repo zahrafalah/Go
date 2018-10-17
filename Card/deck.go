@@ -6,7 +6,7 @@ import "fmt"
 // which is a slice of strings
 type deck []string
 
-// here we are addind a costume methode to our type:
+// here we are adding a costume method to our type:
 
 //(d deck) is considered as receiver
 // d: the actual copy of the deck we are working with is
@@ -18,7 +18,8 @@ func (d deck) print() {
 	}
 }
 
-// Create a func
+// Create & return a list of playing cards.
+//Essentially an array of strings
 func newDeck() deck {
 	cards := deck{}
 	// slice of type string
@@ -32,4 +33,8 @@ func newDeck() deck {
 		}
 	}
 	return cards
+}
+
+func deal(d deck, handSize int) (deck, deck) {
+	return d[:handSize], d[handSize:]
 }

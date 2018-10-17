@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // Create a new type of deck(same as class in OO approach)
 // which is a slice of strings
@@ -35,6 +38,13 @@ func newDeck() deck {
 	return cards
 }
 
+//func without receiver & deck is as an argument
 func deal(d deck, handSize int) (deck, deck) {
 	return d[:handSize], d[handSize:]
+}
+
+func (d deck) toString() string {
+	//this is going to take the slice of strings, joining all into 1 string separated with commas
+	return strings.Join([]string(d), ",")
+
 }

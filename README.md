@@ -16,11 +16,13 @@ Types of packages:
  * Executable: Generates a file that we can run.
  * Reusable: Code used as 'helpers'. Good place to put reusable logic
 
-  Example: 
+  Example:
+  
   Executable:  Defines a package that can be compiled and then *executed*. Must have a func called 'main'. 
-  Package main --> go build --> main.exe
+  * Package main --> go build --> main.exe
+
   Reusable: Defines a package that can be used as a dependency (helper code)
-  Package X    --> go build --> nothing!
+  * Package X    --> go build --> nothing!
 
 ## Standard libraries for Go
   * golang.org/pkg
@@ -29,9 +31,11 @@ Types of packages:
 
   * The Go Playground at https://play.golang.org/ to quickly run a snippet of code.
   * First, dynamically-typed languages perform type checking at runtime, while statically typed languages perform type checking at compile time.If a script written in a statically-typed language contains errors, it will fail to compile until the errors have been fixed.
-  Second, statically-typed languages require you to declare the data types of your variables before you use them, while dynamically-typed languages do not. Consider the two following code examples:
+  Second, statically-typed languages require you to declare the data types of your variables before you use them, while dynamically-typed languages do not. Consider the two following:
   * Static languages: Go , C++, Java
   * Dynamic languages: JS, Python, Ruby 
 
 Array: Fixed length list of things(more primitive)
 Slice: An array that can grow or shrink(more fancy). Every element in a slice must be of same type
+
+func WriteFile(filename string, data []byte, perm os.FileMode) error

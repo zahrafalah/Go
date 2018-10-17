@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // func main() {
 // 	//var Card string = "Ace of spring"
 // 	//Or
@@ -48,12 +50,19 @@ package main
 //new main func to use deal func to split the cards in to two
 //we do not need to import the deal function to get access to it since its declared in the same package
 
+// func main() {
+// 	cards := newDeck()
+
+// 	//this is a little bit of syntax to capture two values that deal func returns
+// 	hand, remaining := deal(cards, 5)
+// 	//we can use print function on both of these since they are both type deck
+// 	hand.print()
+// 	remaining.print()
+// }
+
+//new main func to utilize toString function
+//to get out comma separated list of cards string
 func main() {
 	cards := newDeck()
-
-	//this is a little bit of syntax to capture two values that deal func returns
-	hand, remaining := deal(cards, 5)
-	//we can use print function on both of these since they are both type deck
-	hand.print()
-	remaining.print()
+	fmt.Println(cards.toString())
 }

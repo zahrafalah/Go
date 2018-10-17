@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"strings"
 )
 
@@ -47,4 +48,9 @@ func (d deck) toString() string {
 	//this is going to take the slice of strings, joining all into 1 string separated with commas
 	return strings.Join([]string(d), ",")
 
+}
+
+//this func is going to save a list of cards to a hard drive with a filename
+func (d deck) saveToFile(filename string) error {
+	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
 }

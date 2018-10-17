@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 // func main() {
 // 	//var Card string = "Ace of spring"
 // 	//Or
@@ -60,9 +58,15 @@ import "fmt"
 // 	remaining.print()
 // }
 
-//new main func to utilize toString function
-//to get out comma separated list of cards string
+// //new main func to utilize toString function
+// //to get out comma separated list of cards string
+// func main() {
+// 	cards := newDeck()
+// 	fmt.Println(cards.toString())
+// }
+
+//new main func to create a new text file and save our cards inside of it
 func main() {
 	cards := newDeck()
-	fmt.Println(cards.toString())
+	cards.saveToFile("My_cards")
 }

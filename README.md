@@ -35,7 +35,18 @@ Types of packages:
   * Static languages: Go , C++, Java
   * Dynamic languages: JS, Python, Ruby 
 
-Array: Fixed length list of things(more primitive)
-Slice: An array that can grow or shrink(more fancy). Every element in a slice must be of same type
+  * Array: Fixed length list of things(more primitive)
+  * Slice: An array that can grow or shrink(more fancy). Every element in a slice must be of same type
 
-func WriteFile(filename string, data []byte, perm os.FileMode) error
+### golang.org/pkg/oi/oiutil:
+to save file in the hard drive: 
+
+* func WriteFile(filename string, data []byte, perm os.FileMode) error
+
+
+data []byte: it will return the slice as byte type. See: http://www.asciitable.com/. 
+
+[]byte("Hi There!") ---> [72 105 32 116 104 101 114 101 33]
+
+
+perm os.FileMode:It can be 0666, means anyone can read or write from this file

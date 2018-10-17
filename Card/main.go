@@ -24,17 +24,21 @@ package main
 
 // }
 
-//new main function to declare deck type
+// //new main function to declare deck type
+// func main() {
+
+// 	cards := deck{"Ace of Diamonds", newCard()}
+
+// 	cards = append(cards, "Six of Spade")
+
+// 	cards.print()
+// }
+
+// // a return function, when executed, it will return a value of type 'string'
+// func newCard() string {
+// 	return "Ace of spring"
+// }
 func main() {
-
-	cards := deck{"Ace of Diamonds", newCard()}
-
-	cards = append(cards, "Six of Spade")
-
+	cards := newDeck()
 	cards.print()
-}
-
-// a return function, when executed, it will return a value of type 'string'
-func newCard() string {
-	return "Ace of spring"
 }

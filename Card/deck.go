@@ -17,3 +17,19 @@ func (d deck) print() {
 		fmt.Println(i, card)
 	}
 }
+
+// Create a func
+func newDeck() deck {
+	cards := deck{}
+	// slice of type string
+	cardSuits := []string{"Spades", "Diamonds", "Hearts", "Clubs"}
+	cardValues := []string{"Ace", "Two", "Three", "Four"}
+	//two nested for loops to iterate (i,j) through the suites & cards and create new cards
+	//instd of i and j  we put _ just to get rid of the err of not using them furthur in the code
+	for _, suit := range cardSuits {
+		for _, value := range cardValues {
+			cards = append(cards, value+" of "+suit)
+		}
+	}
+	return cards
+}

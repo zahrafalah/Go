@@ -33,4 +33,5 @@ Types of packages:
   * Static languages: Go , C++, Java
   * Dynamic languages: JS, Python, Ruby 
 
-
+Array: Fixed length list of things(more primitive)
+Slice: An array that can grow or shrink(more fancy). Every element in a slice must be of same type

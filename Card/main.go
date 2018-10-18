@@ -71,9 +71,16 @@ package main
 // 	cards.saveToFile("My_cards")
 // }
 
-//new main func to load a list of cards from the local machine(hard drive file)
+// //new main func to load a list of cards from the local machine(hard drive file)
+// func main() {
+// 	//newDeck of cards
+// 	cards := newDeckFromFile("My_cards")
+// 	cards.print()
+// }
+
+//new main fun for shuffle the deck of cards
 func main() {
-	//newDeck of cards
-	cards := newDeckFromFile("My_cards")
+	cards := newDeck()
+	cards.shuffle()
 	cards.print()
 }

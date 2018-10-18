@@ -1,8 +1,10 @@
 package main
 
+//importing the Str Go libraries
 import (
 	"fmt"
 	"io/ioutil"
+	"os"
 	"strings"
 )
 
@@ -53,4 +55,30 @@ func (d deck) toString() string {
 //this func is going to save a list of cards to a hard drive with a filename
 func (d deck) saveToFile(filename string) error {
 	return ioutil.WriteFile(filename, []byte(d.toString()), 0666)
+}
+
+//function to read from the hard drive file and giving us a new deck from a file
+//we dont need a receiver since we already dont have a deck. we need to pass the
+//file name as an argument and annotate it as a string.after callin the filename
+//the expectation is to receive a deck(the return type would be a type deck).
+func newDeckFromFile(filename string) deck {
+	//bs short for byteslice & err are variable initialization here.
+	bs, err := ioutil.ReadFile(filename)
+	//err a value of type 'error'. If nothing went wrong, it will have a value of 'nil: no value'.
+	//if err print err:
+	if err != nil {
+		//Option #1 -log the error and return a call to newDeck()
+		//Option #2 -log the error and entirely quit the program
+		fmt.Println("Error:", err)
+		//OS standard library package
+		os.Exit(1)
+	}
+	// if there was no err we need to  to turn the bs in to the newDeck
+	// here we are using strings pkg from Go docs to use split func it
+	//takes to args: 1st a string 2d a separate character that we want.
+	// string(bs) is going to take the byte slice and turn it into a string.
+	s := strings.Split(string(bs), ",")
+	// we can return the s as the type of deck
+	return deck(s)
+
 }

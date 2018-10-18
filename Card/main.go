@@ -65,8 +65,15 @@ package main
 // 	fmt.Println(cards.toString())
 // }
 
-//new main func to create a new text file and save our cards inside of it
+// //new main func to create a new text file and save our cards inside of it
+// func main() {
+// 	cards := newDeck()
+// 	cards.saveToFile("My_cards")
+// }
+
+//new main func to load a list of cards from the local machine(hard drive file)
 func main() {
-	cards := newDeck()
-	cards.saveToFile("My_cards")
+	//newDeck of cards
+	cards := newDeckFromFile("My_cards")
+	cards.print()
 }

@@ -7,6 +7,7 @@ import (
 	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Create a new type of deck(same as class in OO approach)
@@ -84,14 +85,34 @@ func newDeckFromFile(filename string) deck {
 
 }
 
-// function that randomizes the order of the deck. It needs a receiver of the deck
-// It does not need any return value within it
+// // function that randomizes the order of the deck. It needs a receiver of the deck
+// // It does not need any return value within it
+// func (d deck) shuffle() {
+// 	//loop through the cards. we put _ instead of cards cz we will not use it furthur in the code
+// 	for i, _ := range d {
+// 		//generates a random number btw 0 & len(cards) - 1 by the rand pkg from Go docs
+// 		newPosition := rand.Intn(len(d) - 1)
+// 		//swapping the current card and the card at cards[randomNumber]
+// 		d[i], d[newPosition] = d[newPosition], d[i]
+// 	}
+// }
+
+// every single time we shuffle our cards with the previous func, It shuffles in the exact
+// same order/fashion which is not a perfect way of randomization.
+// the rand.Intn that we used is a pseudo random generator that uses the exact same seeds
+// every time by default(seed --> generator --> random numbers). In order to fix this problem
+// we need to change this seed value every time. Check pkg rand docs/index/type Rand(a source of random nums).
+// in this Rand func the source(is also a func) is the seed.
+//
 func (d deck) shuffle() {
-	//loop through the cards. we put _ instead of cards cz we will not use it furthur in the code
+	//lets make our seed value with help of another pkg called time. every single time this func will take the
+	//current time as seed for generating newrandom nums. we wil pass this func as an arg for NewSource func
+	source := rand.NewSource(time.Now().UnixNano())
+	//create new rand obj
+	r := rand.New(source)
+
 	for i, _ := range d {
-		//generates a random number btw 0 & len(cards) - 1 by the rand pkg from Go docs
-		newPosition := rand.Intn(len(d) - 1)
-		//swapping the current card and the card at cards[randomNumber]
+		newPosition := r.Intn(len(d) - 1)
 		d[i], d[newPosition] = d[newPosition], d[i]
 	}
 }

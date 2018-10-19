@@ -10,11 +10,12 @@ import (
 	"time"
 )
 
-// Create a new type of deck(same as class in OO approach)
-// which is a slice of strings
+// Create a new costume type of deck(same as class in OO approach)
+// which is a slice of strings. The entire purpose of this file is
+//to describe exactly what a deck is & how it behaves.
 type deck []string
 
-// here we are adding a costume method to our type:
+// here we are adding some costume methods to our type deck:
 
 // (d deck) is considered as receiver
 // d: the actual copy of the deck we are working with is
@@ -45,6 +46,7 @@ func newDeck() deck {
 
 //func without receiver & deck is as an argument
 func deal(d deck, handSize int) (deck, deck) {
+	// slices have this advance feature to select a range within slice
 	return d[:handSize], d[handSize:]
 }
 

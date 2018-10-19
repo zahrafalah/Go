@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 func TestNewDeck(t *testing.T) {
 	d := newDeck()
@@ -16,4 +19,24 @@ func TestNewDeck(t *testing.T) {
 	if d[len(d)-1] != "Four of Clubs" {
 		t.Errorf("Expected firsst card of Four of Clubs, but got %v", d[len(d)-1])
 	}
+}
+
+//a test to make sure I cover an edge case that might make a little problem:
+// During testing: create a deck -> save to file -> file created -> attempt to load -> CRASH!!
+// then after it crashes there would be no place for us doing clean ups
+func TestSaveToDeckAndNewDeckFromFile(t *testing.T) {
+	//Delete any files in the current working directory with the name "_decktesting"
+	os.Remove("_decktesting")
+	//create a new deck
+	d := newDeck()
+	//save to a file
+	d.saveToFile("_decktesting")
+	//load from file
+	loadedDeck := newDeckFromFile("_decktesting")
+	//assert deck length
+	if len(loadedDeck) != 16 {
+		t.Errorf("Expected 16 cards in deck, got %v", len(loadedDeck))
+	}
+	//delete any files in current working directory with the name "_decktesting"
+	os.Remove("_decktesting")
 }

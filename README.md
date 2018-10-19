@@ -53,6 +53,6 @@ perm os.FileMode:It can be 0666, means anyone can read or write from this file
  
 ##Testing
   Go testing is not RSpec, mocha, jasmine, selenium, etc!
-  with go we actually write very small set of Go functions to test our code. To make a test, create a new file ending in _test.go.
+  With Go we actually write very small set of Go functions to test our code. To make a test, create a new file ending in _test.go.
   * What to test? what do I really care about with the newDeck func to get?
-  * Ex: length of the deck? create a new deck -> Write if statement to see if the first card in the deck is equal to "Ace of Spades" -> If it doesn't, tell the go test handler that something went wrong
+  * Ex: length of the deck? create a new deck -> Write if statement to see if the first card in the deck is equal to "Ace of Spades" -> If it doesn't, tell the Go test handler that something went wrong.
